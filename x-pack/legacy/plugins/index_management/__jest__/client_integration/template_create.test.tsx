@@ -9,10 +9,10 @@ import axiosXhrAdapter from 'axios/lib/adapters/xhr';
 import axios from 'axios';
 
 import { setupEnvironment, pageHelpers, nextTick } from './helpers';
-import { TemplatesCreateTestBed } from './helpers/templates_create.helpers';
+import { TemplateCreateTestBed } from './helpers/template_create.helpers';
 import { INVALID_CHARACTERS } from '../../common/constants';
 
-const { setup } = pageHelpers.templatesCreate;
+const { setup } = pageHelpers.templateCreate;
 
 const mockHttpClient = axios.create({ adapter: axiosXhrAdapter });
 
@@ -30,6 +30,20 @@ const DEFAULT_ALIASES = {
   alias: {
     filter: {
       term: { user: 'my_user' },
+    },
+  },
+};
+const DEFAULT_MAPPINGS = {
+  _source: {
+    enabled: false,
+  },
+  properties: {
+    host_name: {
+      type: 'keyword',
+    },
+    created_at: {
+      type: 'date',
+      format: 'EEE MMM dd HH:mm:ss Z yyyy',
     },
   },
 };
@@ -77,8 +91,8 @@ jest.mock('@elastic/eui', () => ({
 
 // We need to skip the tests until react 16.9.0 is released
 // which supports asynchronous code inside act()
-describe.skip('<TemplatesCreate />', () => {
-  let testBed: TemplatesCreateTestBed;
+describe.skip('<TemplateCreate />', () => {
+  let testBed: TemplateCreateTestBed;
 
   const { server, httpRequestsMockHelpers } = setupEnvironment();
 
@@ -171,7 +185,9 @@ describe.skip('<TemplatesCreate />', () => {
         });
 
         // Complete step 3 (mappings)
-        actions.completeStepThree();
+        actions.completeStepThree({
+          mappings: '{}',
+        });
       });
 
       it('should not allow invalid json', async () => {
@@ -204,7 +220,9 @@ describe.skip('<TemplatesCreate />', () => {
       });
 
       // Complete step 3 (mappings)
-      actions.completeStepThree();
+      actions.completeStepThree({
+        mappings: JSON.stringify(DEFAULT_MAPPINGS),
+      });
 
       // Complete step 4 (aliases)
       actions.completeStepFour({
@@ -227,19 +245,19 @@ describe.skip('<TemplatesCreate />', () => {
           find('summaryTabContent')
             .find('.euiTab')
             .map(t => t.text())
-        ).toEqual(['Summary', 'JSON']);
+        ).toEqual(['Summary', 'Request']);
       });
 
-      test('should navigate to JSON tab', async () => {
+      test('should navigate to the Request tab', async () => {
         const { exists, actions } = testBed;
 
         expect(exists('summaryTab')).toBe(true);
-        expect(exists('jsonTab')).toBe(false);
+        expect(exists('requestTab')).toBe(false);
 
-        actions.selectSummaryTab('json');
+        actions.selectSummaryTab('request');
 
         expect(exists('summaryTab')).toBe(false);
-        expect(exists('jsonTab')).toBe(true);
+        expect(exists('requestTab')).toBe(true);
       });
     });
 
@@ -260,7 +278,9 @@ describe.skip('<TemplatesCreate />', () => {
       });
 
       // Complete step 3 (mappings)
-      actions.completeStepThree();
+      actions.completeStepThree({
+        mappings: JSON.stringify({}),
+      });
 
       // Complete step 4 (aliases)
       actions.completeStepFour({
@@ -292,7 +312,9 @@ describe.skip('<TemplatesCreate />', () => {
       });
 
       // Complete step 3 (mappings)
-      actions.completeStepThree();
+      actions.completeStepThree({
+        mappings: JSON.stringify(DEFAULT_MAPPINGS),
+      });
 
       // Complete step 4 (aliases)
       actions.completeStepFour({
@@ -318,7 +340,7 @@ describe.skip('<TemplatesCreate />', () => {
           version: '',
           order: '',
           settings: JSON.stringify(DEFAULT_SETTINGS),
-          mappings: {},
+          mappings: JSON.stringify(DEFAULT_MAPPINGS),
           aliases: JSON.stringify(DEFAULT_ALIASES),
         })
       );

@@ -55,7 +55,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
           <EuiTitle>
             <h3>
               <FormattedMessage
-                id="xpack.idxMgmt.templatesForm.stepLogistics.stepTitle"
+                id="xpack.idxMgmt.templateForm.stepLogistics.stepTitle"
                 defaultMessage="Logistics"
               />
             </h3>
@@ -66,7 +66,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
           <EuiText>
             <p>
               <FormattedMessage
-                id="xpack.idxMgmt.templatesForm.stepLogistics.logisticsDescription"
+                id="xpack.idxMgmt.templateForm.stepLogistics.logisticsDescription"
                 defaultMessage="Define index patterns and other settings that will be applied to the template."
               />
             </p>
@@ -82,7 +82,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
             iconType="help"
           >
             <FormattedMessage
-              id="xpack.idxMgmt.templatesForm.stepLogistics.docsButtonLabel"
+              id="xpack.idxMgmt.templateForm.stepLogistics.docsButtonLabel"
               defaultMessage="Index Templates docs"
             />
           </EuiButtonEmpty>
@@ -95,7 +95,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
           <EuiTitle size="s">
             <h3>
               <FormattedMessage
-                id="xpack.idxMgmt.templatesForm.stepLogistics.nameTitle"
+                id="xpack.idxMgmt.templateForm.stepLogistics.nameTitle"
                 defaultMessage="Name"
               />
             </h3>
@@ -103,7 +103,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
         }
         description={
           <FormattedMessage
-            id="xpack.idxMgmt.templatesForm.stepLogistics.nameDescription"
+            id="xpack.idxMgmt.templateForm.stepLogistics.nameDescription"
             defaultMessage="This name will be used as a unique identifier for this template."
           />
         }
@@ -113,7 +113,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
         <EuiFormRow
           label={
             <FormattedMessage
-              id="xpack.idxMgmt.templatesForm.stepLogistics.fieldNameLabel"
+              id="xpack.idxMgmt.templateForm.stepLogistics.fieldNameLabel"
               defaultMessage="Name (required)"
             />
           }
@@ -138,7 +138,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
           <EuiTitle size="s">
             <h3>
               <FormattedMessage
-                id="xpack.idxMgmt.templatesForm.stepLogistics.indexPatternsTitle"
+                id="xpack.idxMgmt.templateForm.stepLogistics.indexPatternsTitle"
                 defaultMessage="Index patterns"
               />
             </h3>
@@ -146,7 +146,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
         }
         description={
           <FormattedMessage
-            id="xpack.idxMgmt.templatesForm.stepLogistics.indexPatternsDescription"
+            id="xpack.idxMgmt.templateForm.stepLogistics.indexPatternsDescription"
             defaultMessage="Define the index patterns that will be applied to the template."
           />
         }
@@ -156,13 +156,13 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
         <EuiFormRow
           label={
             <FormattedMessage
-              id="xpack.idxMgmt.templatesForm.stepLogistics.fieldIndexPatternsLabel"
+              id="xpack.idxMgmt.templateForm.stepLogistics.fieldIndexPatternsLabel"
               defaultMessage="Index patterns (required)"
             />
           }
           helpText={
             <FormattedMessage
-              id="xpack.idxMgmt.templatesForm.stepLogistics.fieldIndexPatternsHelpText"
+              id="xpack.idxMgmt.templateForm.stepLogistics.fieldIndexPatternsHelpText"
               defaultMessage="Index patterns must match at least one index. Spaces and the characters {invalidCharactersList} are not allowed."
               values={{
                 invalidCharactersList: <strong>{indexPatternIllegalCharacters}</strong>,
@@ -208,7 +208,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
           <EuiTitle size="s">
             <h3>
               <FormattedMessage
-                id="xpack.idxMgmt.templatesForm.stepLogistics.orderTitle"
+                id="xpack.idxMgmt.templateForm.stepLogistics.orderTitle"
                 defaultMessage="Order"
               />
             </h3>
@@ -216,7 +216,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
         }
         description={
           <FormattedMessage
-            id="xpack.idxMgmt.templatesForm.stepLogistics.orderDescription"
+            id="xpack.idxMgmt.templateForm.stepLogistics.orderDescription"
             defaultMessage="The order parameter controls the order of merging if multiple templates match an index."
           />
         }
@@ -226,7 +226,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
         <EuiFormRow
           label={
             <FormattedMessage
-              id="xpack.idxMgmt.templatesForm.stepLogistics.fieldOrderLabel"
+              id="xpack.idxMgmt.templateForm.stepLogistics.fieldOrderLabel"
               defaultMessage="Order"
             />
           }
@@ -249,7 +249,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
           <EuiTitle size="s">
             <h3>
               <FormattedMessage
-                id="xpack.idxMgmt.templatesForm.stepLogistics.versionTitle"
+                id="xpack.idxMgmt.templateForm.stepLogistics.versionTitle"
                 defaultMessage="Version"
               />
             </h3>
@@ -257,7 +257,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
         }
         description={
           <FormattedMessage
-            id="xpack.idxMgmt.templatesForm.stepLogistics.versionDescription"
+            id="xpack.idxMgmt.templateForm.stepLogistics.versionDescription"
             defaultMessage="A version number can be used to simplify template management by external systems."
           />
         }
@@ -267,7 +267,7 @@ export const StepLogistics: React.FunctionComponent<StepProps> = ({
         <EuiFormRow
           label={
             <FormattedMessage
-              id="xpack.idxMgmt.templatesForm.stepLogistics.fieldVersionLabel"
+              id="xpack.idxMgmt.templateForm.stepLogistics.fieldVersionLabel"
               defaultMessage="Version"
             />
           }
